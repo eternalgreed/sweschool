@@ -1,6 +1,4 @@
-package ru.eternalgreed.algsds1;
-
-import java.util.*;
+import java.util.ArrayList;
 
 public class LinkedList {
     public Node head;
@@ -37,7 +35,15 @@ public class LinkedList {
 
     public boolean remove(int _value) {
         // здесь будет ваш код удаления одного узла по заданному значению
-        return true; // если узел был удалён
+        Node ptr = this.head;
+        while (ptr != null) {
+            if (ptr.next.value == _value) {
+                ptr.next = ptr.next.next;
+                return true;
+            }
+            ptr = ptr.next;
+        }
+        return false; // если узел был удалён
     }
 
     public void removeAll(int _value) {
