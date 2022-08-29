@@ -12,25 +12,15 @@ public class LinkedList {
     }
 
     public static LinkedList addTwoLL(LinkedList first, LinkedList second) {
+        int firstSize = first.count();
+        int secondSize = second.count();
+        LinkedList result = new LinkedList();
+        if (firstSize != secondSize) {
+            return result;
+        }
         Node ptr1 = first.head;
         Node ptr2 = second.head;
-        int firstSize = 0;
-        int secondSize = 0;
-        while (ptr1 != null) {
-            firstSize++;
-            ptr1 = ptr1.next;
-        }
-        while (ptr2 != null) {
-            secondSize++;
-            ptr2 = ptr2.next;
-        }
-        if (firstSize != secondSize) {
-            return new LinkedList();
-        }
-        LinkedList result = new LinkedList();
-        ptr1 = first.head;
-        ptr2 = second.head;
-        while (ptr1 != null) {
+        for (int i = 0; i < firstSize; i++) {
             result.addInTail(new Node(ptr1.value + ptr2.value));
             ptr1 = ptr1.next;
             ptr2 = ptr2.next;
@@ -176,14 +166,14 @@ public class LinkedList {
 
     /* void deleteAllNode(int key) {
          Node temp = head;
-         while (temp != null && temp.next != null) { //check for rest of the node except first
+         while (temp != null && temp.next != null) {
              if (temp.next.value == key) {
                  temp.next = temp.next.next;
              } else {
                  temp = temp.next;
              }
          }
-         if (head != null && head.value == key) { //If first node also contain the key
+         if (head != null && head.value == key) {
              head = head.next;
          }
      }*/
