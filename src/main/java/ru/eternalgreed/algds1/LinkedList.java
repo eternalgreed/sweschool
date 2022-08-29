@@ -110,7 +110,7 @@ public class LinkedList {
         }
         if (head != null && head.value == _value) { //If first node also contain the key
             head = head.next;
-            if (head ==null) {
+            if (head == null) {
                 tail = null;
             }
         }
@@ -136,18 +136,37 @@ public class LinkedList {
 
     public void insertAfter(Node _nodeAfter, Node _nodeToInsert) {
         if (_nodeAfter == null) {
+            _nodeToInsert.next = head;
             head = _nodeToInsert;
+            if (head.next == null) {
+                tail = _nodeToInsert;
+            }
+            return;
         }
         Node ptr = head;
-        while (ptr != _nodeAfter) {
+        while (ptr != null && ptr != _nodeAfter) {
             ptr = ptr.next;
         }
-        Node tmp = ptr.next;
-        ptr.next = _nodeToInsert;
-        _nodeToInsert.next = tmp;
-        if (tmp == null) {
+        if (ptr == null) return;
+        _nodeToInsert.next = _nodeAfter.next;
+        _nodeAfter.next = _nodeToInsert;
+        if (_nodeToInsert.next == null) {
             tail = _nodeToInsert;
         }
+
+        /*if (nodeAfter == null) {
+            nodeToInsert.setNext(head);
+            head = nodeToInsert;
+            if (head.getNext() == null) {
+                tail = nodeToInsert;
+            }
+        } else if (getNodeByValue(nodeAfter.getValue()) != null) {
+            nodeToInsert.setNext(nodeAfter.getNext());
+            nodeAfter.setNext(nodeToInsert);
+            if (nodeToInsert.getNext() == null) {
+                tail = nodeToInsert;
+            }
+        }*/
         // здесь будет ваш код вставки узла после заданного
 
         // если _nodeAfter = null ,
