@@ -79,7 +79,7 @@ public class LinkedList {
         }
         if (head != null && head.value == _value) {
             head = head.next;
-            if (head ==null) {
+            if (head == null) {
                 tail = null;
             }
         }
