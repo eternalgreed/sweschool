@@ -114,7 +114,7 @@ public class LinkedList2 {
         // если _nodeAfter = null
         // добавьте новый элемент первым в списке
         if (_nodeAfter == null) {
-            var oldHead = head;
+            Node oldHead = head;
             head = _nodeToInsert;
             head.next = oldHead;
             head.prev = null;
@@ -127,7 +127,7 @@ public class LinkedList2 {
             addInTail(_nodeToInsert);
             return;
         }
-        var oldNext = _nodeAfter.next;
+        Node oldNext = _nodeAfter.next;
         _nodeAfter.next = _nodeToInsert;
         _nodeToInsert.next = oldNext;
         oldNext.prev = _nodeToInsert;
