@@ -1,4 +1,4 @@
-package ru.eternalgreed.algds1;
+package ru.eternalgreed.algds1.task1;
 
 import java.util.ArrayList;
 
