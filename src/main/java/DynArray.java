@@ -7,8 +7,8 @@ public class DynArray<T> {
     Class clazz;
 
     public static final int DEFAULT_CAPACITY = 16;
-    private static final double INCREASING_MULTIPLIER = 2.0;
-    private static final double DECREASING_MULTIPLIER = 1.5;
+    public static final double INCREASING_MULTIPLIER = 2.0;
+    public static final double DECREASING_MULTIPLIER = 1.5;
 
     public DynArray(Class clz) {
         clazz = clz; // нужен для безопасного приведения типов
