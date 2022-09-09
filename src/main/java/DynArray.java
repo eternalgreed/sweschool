@@ -54,6 +54,7 @@ public class DynArray<T> {
         }
     }
 
+    // O(n)
     public void insert(T itm, int index) {
         // ваш код
         if (index < 0 || index > this.count) {
@@ -73,20 +74,22 @@ public class DynArray<T> {
         count++;
     }
 
+
+    // O(n)
     public void remove(int index)
     {
         // ваш код
         if (index > this.count - 1 || index < 0) {
-            throw new ArrayIndexOutOfBoundsException();
+            throw new IllegalArgumentException();
         }
         if (index < count - 1) {
             for (int i = index; i < count; i++) {
-                this.array[i] = this.array[i+1];
+                array[i] = array[i+1];
             }
             count--;
             decreaseCapacityIfNeeded();
         } else {
-            this.array[count-1] = null;
+            array[count-1] = null;
             count--;
             decreaseCapacityIfNeeded();
         }
