@@ -38,7 +38,7 @@ public class DynArray<T> {
 
 
     public T getItem(int index) {
-        if (index>= count || index <0) {
+        if (index >= count || index < 0) {
             throw new IllegalArgumentException();
         }
         return array[index];
@@ -76,28 +76,27 @@ public class DynArray<T> {
 
 
     // O(n)
-    public void remove(int index)
-    {
+    public void remove(int index) {
         // ваш код
         if (index > this.count - 1 || index < 0) {
             throw new IllegalArgumentException();
         }
         if (index < count - 1) {
             for (int i = index; i < count; i++) {
-                array[i] = array[i+1];
+                array[i] = array[i + 1];
             }
             count--;
             decreaseCapacityIfNeeded();
         } else {
-            array[count-1] = null;
+            array[count - 1] = null;
             count--;
             decreaseCapacityIfNeeded();
         }
     }
 
     private void decreaseCapacityIfNeeded() {
-        if (this.count < capacity/2) {
-            int newCapacity = (int) (capacity/DECREASING_MULTIPLIER);
+        if (this.count < capacity / 2) {
+            int newCapacity = (int) (capacity / DECREASING_MULTIPLIER);
             makeArray(newCapacity < DEFAULT_CAPACITY ? DEFAULT_CAPACITY : newCapacity);
         }
     }
