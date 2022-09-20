@@ -6,17 +6,14 @@ public class Deque<T>
 
     public Deque() {
         this.deque = new ArrayList<>();
-        // инициализация внутреннего хранилища
     }
 
     public void addFront(T item) {
         this.deque.add(0, item);
-        // добавление в голову
     }
 
     public void addTail(T item) {
         this.deque.add(item);
-        // добавление в хвост
     }
 
     public T removeFront() {
@@ -25,12 +22,10 @@ public class Deque<T>
             this.deque.remove(0);
             return current;
         }
-        // удаление из головы
         return null;
     }
 
     public T removeTail() {
-        // удаление из хвоста
         if (this.deque.size() > 0) {
             T current = this.deque.get(this.deque.size()-1);
             this.deque.remove(this.deque.size()-1);
@@ -40,6 +35,6 @@ public class Deque<T>
     }
 
     public int size() {
-        return this.deque.size(); // размер очереди
+        return this.deque.size();
     }
 }
