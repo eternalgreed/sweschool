@@ -125,6 +125,7 @@ public class LinkedList {
 
 }
 
+/*
 class Node {
     public int value;
     public Node next;
@@ -133,4 +134,4 @@ class Node {
         value = _value;
         next = null;
     }
-}
+}*/

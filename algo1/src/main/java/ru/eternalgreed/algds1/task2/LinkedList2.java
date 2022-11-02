@@ -1,3 +1,5 @@
+package ru.eternalgreed.algds1.task2;
+
 import java.util.ArrayList;
 
 public class LinkedList2 {
@@ -71,9 +73,9 @@ public class LinkedList2 {
             return;
         }
         if (isTailToDelete) {
-            tail = tail.prev;
-            tail.next = null;
-            return;
+           tail = tail.prev;
+           tail.next = null;
+           return;
         }
         node.prev.next = node.next;
         node.next.prev = node.prev;
@@ -113,8 +115,9 @@ public class LinkedList2 {
 
         // если _nodeAfter = null
         // добавьте новый элемент первым в списке
-        if (_nodeAfter == null) {
-            Node oldHead = head;
+        if (_nodeAfter == null)
+        {
+            var oldHead = head;
             head = _nodeToInsert;
             head.next = oldHead;
             head.prev = null;
@@ -123,11 +126,12 @@ public class LinkedList2 {
             return;
         }
 
-        if (_nodeAfter == tail) {
+        if (_nodeAfter == tail)
+        {
             addInTail(_nodeToInsert);
             return;
         }
-        Node oldNext = _nodeAfter.next;
+        var oldNext = _nodeAfter.next;
         _nodeAfter.next = _nodeToInsert;
         _nodeToInsert.next = oldNext;
         oldNext.prev = _nodeToInsert;
