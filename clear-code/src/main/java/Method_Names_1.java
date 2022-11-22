@@ -12,10 +12,13 @@
  * 4) public PowerSet difference(PowerSet set2) - public PowerSet getDifference(PowerSet set2)
  * // метод возвращает разницу текущего множества и множества-параметра
  *
- * 6. public PowerSet union(PowerSet set2) - public PowerSet getUnion(PowerSet set2)
+ * 5) public PaymentData getDataToSave(HttpRequest rq) - public PaymentData formDataFromHttpRequest(HttpRequest rq)
+ * // сформировать из запроса данные о платеже
+ *
+ * 6) public PowerSet union(PowerSet set2) - public PowerSet getUnion(PowerSet set2)
  * // метод возвращает объединение текущего множества и множества-параметра
  *
- * 7. public PowerSet union intersection(PowerSet set2) - public PowerSet getIntersection(PowerSet set2)
+ * 7) public PowerSet union intersection(PowerSet set2) - public PowerSet getIntersection(PowerSet set2)
  * // метод возвращает пересечение текущего множества и множества-параметра
  *
  * 8) public static LinkedList addTwoLL(LinkedList first, LinkedList second) - public static LinkedList getSumsListIfEqualLengths (LinkedList first, LinkedList second)
