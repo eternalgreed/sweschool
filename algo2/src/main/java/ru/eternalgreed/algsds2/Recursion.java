@@ -42,6 +42,10 @@ public class Recursion {
     }
 
     public static void printOnlyEvenValuesInList(List<Integer> list) {
+        printOnlyEvenValuesInList(list, 0);
+    }
+
+    public static void printOnlyEvenValuesInListDeprecated(List<Integer> list) {
         if (!list.isEmpty()) {
             Integer firstElement = list.get(0);
             if (firstElement % 2 == 0) {
@@ -79,14 +83,30 @@ public class Recursion {
     }
 
 
-    public static List<File> getAllFilesInsideDir(String path) {
+    public static List<File> getAllFilesInsideDirDeprecated(String path) {
         List<File> files = new ArrayList<>();
         getAllFilesInsideDir(path, files);
         return files;
     }
 
+    public static List<File> getAllFilesInsideDir(String path) {
+        File pathFile = new File(path);
+        List<File> resultList = new ArrayList<>();
+        if (pathFile.isDirectory()) {
+            File[] files = pathFile.listFiles();
+            for (File file : files) {
+                resultList.addAll(getAllFilesInsideDir(file.getPath()));
+            }
+        } else {
+            resultList.add(pathFile);
+        }
+        return resultList;
+    }
+
+
     public static void getAllFilesInsideDir(String path, List<File> resultList) {
         File pathFile = new File(path);
+        List<File> resulList = new ArrayList<>();
         if (pathFile.isDirectory()) {
             File[] files = pathFile.listFiles();
             for (File file : files) {
@@ -94,6 +114,15 @@ public class Recursion {
             }
         } else {
             resultList.add(pathFile);
+        }
+    }
+
+    private static void printOnlyEvenValuesInList(List<Integer> list, int index) {
+        if (!list.isEmpty() && index < list.size()) {
+            if (list.get(index) % 2 == 0) {
+                System.out.print(list.get(index) + " ");
+            }
+            printOnlyEvenValuesInList(list, index + 1);
         }
     }
 
