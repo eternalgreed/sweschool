@@ -1,6 +1,6 @@
+package ru.eternalgreed.algsds2.task3;
 
 
-import java.io.*;
 import java.util.*;
 
 
@@ -161,10 +161,68 @@ class BST<T>
         }
     }
 
+    /*public boolean DeleteNodeByKey(int key)
+    {
+        // удаляем узел по ключу
+        BSTFind<T> findNodeByKey = FindNodeByKey(key);
+        if (!findNodeByKey.NodeHasKey){
+            return false; // если узел не найден
+        }
+
+        BSTNode<T> nodeToDelete = findNodeByKey.Node;
+        if (nodeToDelete.LeftChild == null && nodeToDelete.RightChild == null) {
+            if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                nodeToDelete.Parent.LeftChild = null;
+            } else {
+                nodeToDelete.Parent.RightChild = null;
+            }
+        }
+        if (nodeToDelete.LeftChild != null && nodeToDelete.RightChild == null) {
+            if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                nodeToDelete.Parent.LeftChild = nodeToDelete.LeftChild;
+            } else {
+                nodeToDelete.Parent.RightChild = nodeToDelete.LeftChild;
+            }
+
+        } else if (nodeToDelete.LeftChild == null && nodeToDelete.RightChild != null) {
+            if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                nodeToDelete.Parent.LeftChild = nodeToDelete.RightChild;
+            } else {
+                nodeToDelete.Parent.RightChild = nodeToDelete.RightChild;
+            }
+        } else {
+            BSTNode<T> minNode = FinMinMax(nodeToDelete.RightChild, false);
+            if (nodeToDelete.RightChild == minNode) {
+
+            }
+            if (minNode.RightChild == null) {
+                if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                    nodeToDelete.Parent.LeftChild = minNode;
+                } else {
+                    nodeToDelete.Parent.RightChild = minNode;
+                }
+            } else {
+          //    tmpNode = minNode.RightChild;
+                minNode.Parent.LeftChild = minNode.RightChild;
+                if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                    nodeToDelete.Parent.LeftChild = minNode;
+                } else {
+                    nodeToDelete.Parent.RightChild = minNode;
+                }
+
+            }
+        }
+        *//*if (findNodeByKey.Node.RightChild ==null) {
+            findNodeByKey.Node.Parent =
+        }*//*
+        return false; // если узел не найден
+    }*/
+
 
 
     public int Count()
     {
+        //return GetAllNodes().size();
         return getCount(Root);
     }
 
@@ -244,7 +302,7 @@ class BST<T>
         resultList.add(current);
         resultList.addAll(inOrderDeepRecursive(current.RightChild));
         return resultList;
-    }
+     }
 
     private ArrayList<BSTNode> postOrderDeepRecursive(BSTNode<T> current) {
         ArrayList<BSTNode> resultList = new ArrayList<>();
@@ -300,5 +358,8 @@ class BST<T>
         getAllNodes(node.LeftChild, resultList);
         getAllNodes(node.RightChild, resultList);
     }
+
+
+
 
 }

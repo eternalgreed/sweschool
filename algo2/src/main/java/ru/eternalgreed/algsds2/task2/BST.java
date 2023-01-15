@@ -1,3 +1,4 @@
+package ru.eternalgreed.algsds2.task2;
 
 
 import java.io.*;
@@ -161,115 +162,70 @@ class BST<T>
         }
     }
 
+    /*public boolean DeleteNodeByKey(int key)
+    {
+        // удаляем узел по ключу
+        BSTFind<T> findNodeByKey = FindNodeByKey(key);
+        if (!findNodeByKey.NodeHasKey){
+            return false; // если узел не найден
+        }
+
+        BSTNode<T> nodeToDelete = findNodeByKey.Node;
+        if (nodeToDelete.LeftChild == null && nodeToDelete.RightChild == null) {
+            if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                nodeToDelete.Parent.LeftChild = null;
+            } else {
+                nodeToDelete.Parent.RightChild = null;
+            }
+        }
+        if (nodeToDelete.LeftChild != null && nodeToDelete.RightChild == null) {
+            if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                nodeToDelete.Parent.LeftChild = nodeToDelete.LeftChild;
+            } else {
+                nodeToDelete.Parent.RightChild = nodeToDelete.LeftChild;
+            }
+
+        } else if (nodeToDelete.LeftChild == null && nodeToDelete.RightChild != null) {
+            if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                nodeToDelete.Parent.LeftChild = nodeToDelete.RightChild;
+            } else {
+                nodeToDelete.Parent.RightChild = nodeToDelete.RightChild;
+            }
+        } else {
+            BSTNode<T> minNode = FinMinMax(nodeToDelete.RightChild, false);
+            if (nodeToDelete.RightChild == minNode) {
+
+            }
+            if (minNode.RightChild == null) {
+                if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                    nodeToDelete.Parent.LeftChild = minNode;
+                } else {
+                    nodeToDelete.Parent.RightChild = minNode;
+                }
+            } else {
+          //    tmpNode = minNode.RightChild;
+                minNode.Parent.LeftChild = minNode.RightChild;
+                if (nodeToDelete.Parent.LeftChild == nodeToDelete) {
+                    nodeToDelete.Parent.LeftChild = minNode;
+                } else {
+                    nodeToDelete.Parent.RightChild = minNode;
+                }
+
+            }
+        }
+        *//*if (findNodeByKey.Node.RightChild ==null) {
+            findNodeByKey.Node.Parent =
+        }*//*
+        return false; // если узел не найден
+    }*/
+
 
 
     public int Count()
     {
+        //return GetAllNodes().size();
         return getCount(Root);
     }
-
-
-    public ArrayList<BSTNode> WideAllNodes()
-    {
-        ArrayList<BSTNode> allNodes = new ArrayList<>();
-
-        if(Root == null)
-            return allNodes;
-
-        ArrayList<BSTNode> currentNodesLevel = new ArrayList<>();
-        currentNodesLevel.add(Root);
-
-        while( !currentNodesLevel.isEmpty() )
-        {
-            ArrayList<BSTNode> nextNodesLevel = new ArrayList<>();
-            for(BSTNode node : currentNodesLevel)
-            {
-                allNodes.add(node);
-
-                if(node.LeftChild != null)
-                    nextNodesLevel.add(node.LeftChild);
-                if(node.RightChild != null)
-                    nextNodesLevel.add(node.RightChild);
-            }
-            currentNodesLevel = nextNodesLevel;
-        }
-
-        return allNodes;
-    }
-
-    public ArrayList<BSTNode> WideAllNodes1()
-    {
-        ArrayList<BSTNode> allNodes = new ArrayList<>();
-        Queue<BSTNode> queue = new LinkedList<>();
-        queue.add(Root);
-        while (!queue.isEmpty()){
-            BSTNode node = queue.poll();
-            allNodes.add(node);
-            if(node.LeftChild != null){
-                queue.add(node.LeftChild);
-            }
-            if(node.RightChild != null){
-                queue.add(node.RightChild);
-            }
-        }
-        return  allNodes;
-    }
-
-
-
-
-    public ArrayList<BSTNode> DeepAllNodes(int order) {
-        if (Root == null) {
-            return new ArrayList<>();
-        }
-        switch (order) {
-            case 0:
-                return inOrderDeepRecursive(Root);
-            case 1:
-                return postOrderDeepRecursive(Root);
-            case 2:
-                return preOrderDeepRecursive(Root);
-            default:
-                return new ArrayList<>();
-        }
-    }
-
-    private ArrayList<BSTNode> inOrderDeepRecursive(BSTNode<T> current) {
-        ArrayList<BSTNode> resultList = new ArrayList<>();
-        if (current == null) {
-            return resultList;
-        }
-
-        resultList.addAll(inOrderDeepRecursive(current.LeftChild));
-        resultList.add(current);
-        resultList.addAll(inOrderDeepRecursive(current.RightChild));
-        return resultList;
-    }
-
-    private ArrayList<BSTNode> postOrderDeepRecursive(BSTNode<T> current) {
-        ArrayList<BSTNode> resultList = new ArrayList<>();
-        if (current == null) {
-            return resultList;
-        }
-        resultList.addAll(inOrderDeepRecursive(current.LeftChild));
-        resultList.addAll(inOrderDeepRecursive(current.RightChild));
-        resultList.add(current);
-        return resultList;
-    }
-
-    private ArrayList<BSTNode> preOrderDeepRecursive(BSTNode<T> current) {
-        ArrayList<BSTNode> resultList = new ArrayList<>();
-        if (current == null) {
-            return resultList;
-        }
-        resultList.add(current);
-        resultList.addAll(inOrderDeepRecursive(current.LeftChild));
-        resultList.addAll(inOrderDeepRecursive(current.RightChild));
-        return resultList;
-    }
-
-
-
 
 
     private int getCount(BSTNode<T> node) {
