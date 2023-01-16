@@ -309,8 +309,8 @@ class BST<T>
         if (current == null) {
             return resultList;
         }
-        resultList.addAll(inOrderDeepRecursive(current.LeftChild));
-        resultList.addAll(inOrderDeepRecursive(current.RightChild));
+        resultList.addAll(postOrderDeepRecursive(current.LeftChild));
+        resultList.addAll(postOrderDeepRecursive(current.RightChild));
         resultList.add(current);
         return resultList;
     }
@@ -321,8 +321,8 @@ class BST<T>
             return resultList;
         }
         resultList.add(current);
-        resultList.addAll(inOrderDeepRecursive(current.LeftChild));
-        resultList.addAll(inOrderDeepRecursive(current.RightChild));
+        resultList.addAll(preOrderDeepRecursive(current.LeftChild));
+        resultList.addAll(preOrderDeepRecursive(current.RightChild));
         return resultList;
     }
 
