@@ -61,10 +61,13 @@ class aBST
         if (index == null) {
             return -1;
         }
+        if (index == 0 && Tree[0] == null) {
+            Tree[0] = key;
+        }
+
         if (index < 0) {
             index = - index;
             Tree[index] = key;
-            return index;
         }
         return index;
         // индекс добавленного/существующего ключа или -1 если не удалось
