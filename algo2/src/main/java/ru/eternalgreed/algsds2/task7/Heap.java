@@ -39,6 +39,9 @@ class Heap
     private void siftDown(int parentIndex) {
         int firstChildIndex = 2 * parentIndex + 1;
         int secondChildIndex = 2 * parentIndex + 2;
+        if (firstChildIndex >= HeapArray.length || secondChildIndex>= HeapArray.length ) {
+            return;
+        }
         int maxChildIndex =  HeapArray[firstChildIndex] > HeapArray[secondChildIndex] ? firstChildIndex : secondChildIndex;
         if (HeapArray[parentIndex] >= HeapArray[maxChildIndex]) {
             return;
