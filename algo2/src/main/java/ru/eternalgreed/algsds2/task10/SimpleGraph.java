@@ -1,3 +1,6 @@
+package ru.eternalgreed.algsds2.task10;
+
+
 import java.util.*;
 
 class Vertex
