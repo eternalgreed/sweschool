@@ -1,4 +1,10 @@
-import java.util.*;
+package ru.eternalgreed.algsds2.task11;
+
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 class Vertex
 {
