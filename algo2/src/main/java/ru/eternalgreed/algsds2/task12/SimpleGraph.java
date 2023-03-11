@@ -1,4 +1,10 @@
-import java.util.*;
+package ru.eternalgreed.algsds2.task12;
+
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 class Vertex
 {
@@ -147,6 +153,7 @@ class SimpleGraph
         return tracePath(prevVertices, vertices, VTo);
     }
 
+
     public ArrayList<Vertex> WeakVertices()
     {
         // возвращает список узлов вне треугольников
@@ -173,7 +180,6 @@ class SimpleGraph
         }
         return false;
     }
-
 
     private ArrayList<Vertex> tracePath(int[] prevVertices, ArrayList<Vertex> vertices, int vertexTo) {
         if (prevVertices[vertexTo] == -1) return vertices;
